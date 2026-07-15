@@ -1748,6 +1748,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d3b207530da2a077e5cd464ac2c22c7b0c11b7802330d9c742704420b0e21a6f"
 
 [[package]]
+name = "oxc-yaml-parser"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cee13f231c17bac69422880abe2481e6b3bccabcc723ce8940cd7bf7c3b09ffb"
+dependencies = [
+ "oxc_allocator",
+]
+
+[[package]]
 name = "oxc_allocator"
 version = "0.140.0"
 dependencies = [
@@ -2107,6 +2116,21 @@ dependencies = [
  "oxc_parser",
  "oxc_span",
  "oxc_syntax",
+ "oxc_tasks_common",
+ "pico-args",
+]
+
+[[package]]
+name = "oxc_formatter_yaml"
+version = "0.58.0"
+dependencies = [
+ "cow-utils",
+ "insta",
+ "oxc-yaml-parser",
+ "oxc_allocator",
+ "oxc_diagnostics",
+ "oxc_formatter_core",
+ "oxc_span",
  "oxc_tasks_common",
  "pico-args",
 ]
