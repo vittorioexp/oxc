@@ -35,5 +35,3 @@ oxc_syntax = { workspace = true }
 
 itoa = { workspace = true }
 rustc-hash = { workspace = true }
-
-[dev-dependencies]
