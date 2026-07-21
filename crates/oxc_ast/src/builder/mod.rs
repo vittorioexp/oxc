@@ -1,14 +1,14 @@
 //! AST builder.
 //!
-//! AST nodes are created by builder methods defined on the AST types themselves, which are passed
-//! an `&B where B: GetAstBuilder` or `&A where A: GetAllocator`:
+//! AST nodes are created by builder methods defined on the AST types themselves,
+//! which are passed a `&B where B: GetAstBuilder` or `&A where A: GetAllocator`:
 //!
 //! * `Statement::new_expression_statement(span, expr, &builder)`
 //! * `Vec::new_in(&builder)`, `Ident::from_str_in(str, &builder)`
 //!
-//! [`AstBuilder`] provides the memory arena and [`NodeId`]s that these methods use. It is not
-//! [`Copy`] or [`Clone`], and is passed by reference. Its `allocator` field is private - use the
-//! `allocator` method provided by the [`GetAllocator`] trait.
+//! [`AstBuilder`] provides the memory arena and [`NodeId`]s that these methods use.
+//! It is not [`Copy`] or [`Clone`], and is passed by reference.
+//! Its `allocator` field is private - use the `allocator` method provided by the [`GetAllocator`] trait.
 //!
 //! Implementing [`GetAstBuilder`] on types which hold an [`AstBuilder`] allows for a shorter syntax:
 //!
@@ -67,12 +67,11 @@
 //! ## Migration from the old builder
 //!
 //! [`AstBuilder`] used to be a [`Copy`] type with its own methods for creating AST nodes
-//! (e.g. `builder.statement_expression(span, expr)`) and primitives (e.g. `builder.vec()`,
-//! `builder.ident(str)`). Those methods, and the `disable_old_builder` Cargo feature which opted out
-//! of them, have both been removed. Use the AST type builder methods described above instead.
+//! (e.g. `builder.statement_expression(span, expr)`) and primitives (e.g. `builder.vec()`,`builder.ident(str)`).
+//! Those methods have now been removed. Use the AST type builder methods described above instead.
 //!
-//! [`AstBuilder`] and [`NONE`] are no longer re-exported from the crate root either - import them
-//! from this module instead.
+//! [`AstBuilder`] and [`NONE`] are no longer re-exported from the crate root either -
+//! import them from this module instead.
 //!
 //! Explanation of the motivation for this change here: <https://github.com/oxc-project/oxc/issues/23043>.
 
